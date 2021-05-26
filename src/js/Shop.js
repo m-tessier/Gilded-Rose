@@ -14,16 +14,20 @@ class Shop {
         case 'Aged Brie' :
           if (item.quality < 50) {
             item.quality += 1;
-            item.sellIn < 0 ? item.quality += 1 : null;
+            item.sellIn < 11 ? item.quality += 1 : null;
+            item.sellIn < 6 ? item.quality += 1 : null;
           }
+          item.quality > 50 ? item.quality = 50 : null;
+          item.sellIn < 0 ? item.quality = 0 : null;
           break;
         case 'Backstage passes to a TAFKAL80ETC concert' :
           if (item.quality < 50) {
-            item.quality = item.quality + 1;
+            item.quality += 1;
             item.sellIn < 11 ? item.quality += 1 : null;
             item.sellIn < 6 ? item.quality += 1 : null;
-            item.sellIn < 0 ? item.quality = 0 : null;
-          }         
+          }
+          item.quality > 50 ? item.quality = 50 : null;
+          item.sellIn < 0 ? item.quality = 0 : null;
           break;
         case String(item.name.match(/^Conjured.*/)) :
           item.quality > 1 ? item.quality -= 2 : null;
@@ -38,7 +42,6 @@ class Shop {
         item.sellIn < 0 && item.quality > 0 ? item.quality -= 1 : null;
       }
     });
-    console.log(this.items)
 
     return this.items;
   }
