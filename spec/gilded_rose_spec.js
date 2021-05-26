@@ -1,6 +1,7 @@
-var { Shop, Item } = require('../src/gilded_rose.js');
+let { Item } = require('../src/js/Item.js');
+let { Shop } = require('../src/js/Shop.js');
 describe("GildedRose shop manager", function () {
-  var listItems;
+  let listItems;
 
   beforeEach(function () {
     listItems = [];
@@ -14,7 +15,7 @@ describe("GildedRose shop manager", function () {
     const gildedRose = new Shop(listItems);
     const items = gildedRose.updateQuality();
 
-    var expected = [
+    let expected = [
       { sellIn: 9, quality: 19 },
       { sellIn: 2, quality: 5 }
     ];
@@ -31,7 +32,7 @@ describe("GildedRose shop manager", function () {
     const gildedRose = new Shop(listItems);
     const items = gildedRose.updateQuality();
 
-    var expected = [
+    let expected = [
       { sellIn: 19, quality: 31 },
       { sellIn: 19, quality: 31 },
     ];
